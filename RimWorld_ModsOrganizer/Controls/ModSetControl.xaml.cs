@@ -12,17 +12,33 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
-namespace RimWorld_ModsLoader
+namespace RimWorld_ModsOrganizer
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ModSetControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ModSetControl : BaseArrangableControl
     {
-        public MainWindow()
+
+        #region INotifyPropertyChanged
+        
+        #endregion
+
+        public ModSetControl()
         {
             InitializeComponent();
+        }
+
+        private void Grid_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Focus();
+        }
+
+        private void Grid_LostFocus(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

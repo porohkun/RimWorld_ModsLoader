@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RimWorld_ModsLoader.Properties
+namespace RimWorld_ModsOrganizer.Properties
 {
 
 

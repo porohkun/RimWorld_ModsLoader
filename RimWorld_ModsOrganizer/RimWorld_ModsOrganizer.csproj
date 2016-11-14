@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CD4FC9BC-A7B8-4F6B-A5F8-29CC7361FE0A}</ProjectGuid>
+    <ProjectGuid>{879D242D-AE37-4DD9-885C-F454AD9B004D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RimWorld_ModsLoader</RootNamespace>
-    <AssemblyName>RimWorld_ModsLoader</AssemblyName>
+    <RootNamespace>RimWorld_ModsOrganizer</RootNamespace>
+    <AssemblyName>RimWorld_ModsOrganizer</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -63,12 +63,27 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controls\BaseArrangableControl.cs" />
+    <Compile Include="Controls\ControlsPanel.cs" />
+    <Compile Include="Lancer1WPF\ArrangePanel.cs" />
+    <Compile Include="Lancer1WPF\DataItem.cs" />
+    <Compile Include="Lancer1WPF\ILayoutStrategy.cs" />
+    <Compile Include="Lancer1WPF\ListLayoutStrategy.cs" />
+    <Compile Include="Lancer1WPF\TableLayoutStrategy.cs" />
+    <Compile Include="Lancer1WPF\TestDataSource.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Controls\ModSetControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ModSetControl.xaml.cs">
+      <DependentUpon>ModSetControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,6 +109,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\InfoButton.tex.png" />
+    <Resource Include="Images\NewFile.tex.png" />
+    <Resource Include="Images\Other-steam-light-icon.png" />
+    <Resource Include="Images\RimIcon.png" />
+    <Resource Include="Images\RimWorldLogo.tex.png" />
+    <Resource Include="Images\Save.tex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\folder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
