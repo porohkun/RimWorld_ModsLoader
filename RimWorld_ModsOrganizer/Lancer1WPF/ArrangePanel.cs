@@ -185,7 +185,7 @@ namespace Lancer1WPF
 
         private void InitializeEmptyOrder()
         {
-            var next = Children.OfType<UIElement>().Max(ch => GetOrder(ch)) + 1;
+            var next = Children.OfType<UIElement>().Select(ch => GetOrder(ch)).DefaultIfEmpty(0).Max() + 1;
             foreach (var child in Children.OfType<UIElement>().Where(child => GetOrder(child) == -1))
             {
                 SetOrder(child, next);

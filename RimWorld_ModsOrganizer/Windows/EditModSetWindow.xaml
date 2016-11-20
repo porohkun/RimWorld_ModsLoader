@@ -1,0 +1,79 @@
+﻿<Window x:Class="RimWorld_ModsOrganizer.EditModSetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RimWorld_ModsOrganizer"
+        mc:Ignorable="d"
+        Title="EditModSetWindow" Height="320.749" Width="497.983" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1" Text="Name:" VerticalAlignment="Center" HorizontalAlignment="Left" Width="50" FontFamily="Calibri" FontSize="14"/>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1" Margin="50,0,0,0"/>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ToggleButton Grid.Column="1" Content="Steam mods" IsChecked="True"/>
+            <ToggleButton Grid.Column="3" Content="Local mods" IsChecked="True"/>
+            <ToggleButton Grid.Column="5" Content="Outdated" IsChecked="True"/>
+        </Grid>
+        <Grid Grid.Row="5" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
+                <ScrollViewer>
+                    <local:ControlsPanel x:Name="modsPanel" VerticalAlignment="Top"/>
+                </ScrollViewer>
+            </Border>
+            <ScrollViewer Grid.Column="2">
+                <StackPanel Background="{x:Null}" >
+                    <TextBlock x:Name="modName" Text="Mod name" FontSize="20" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="modVersion" Text="version"/>
+                    <Image Source="..\Images\preview.png" HorizontalAlignment="Center"/>
+                    <Grid>
+                        <TextBlock x:Name="modAuthor" Text="author" HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="modLink" Text="link" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Button x:Name="modWorkshop" Content="Steam Workshop" Click="modWorkshop_Click" HorizontalAlignment="Right"/>
+                    <TextBlock x:Name="modDesctiption" Text="Description"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Row="7" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Content="OK" Click="OK_Click"/>
+            <Button Grid.Column="3" Content="Cancel"/>
+        </Grid>
+    </Grid>
+</Window>

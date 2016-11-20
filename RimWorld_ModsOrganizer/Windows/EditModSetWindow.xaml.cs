@@ -10,22 +10,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace RimWorld_ModsOrganizer
 {
     /// <summary>
-    /// Interaction logic for ModSetControl.xaml
+    /// Interaction logic for EditModSetWindow.xaml
     /// </summary>
-    public partial class ModSetControl : UserControl
+    public partial class EditModSetWindow : Window
     {
-        public ModSetControl()
+        public EditModSetWindow()
         {
             InitializeComponent();
         }
+        
+        private void OK_Click(object sender, RoutedEventArgs e)
+        {
+            Image i;
+            
+        }
 
-        private void Delete_Click(object sender, RoutedEventArgs e)
+        private void modWorkshop_Click(object sender, RoutedEventArgs e)
         {
 
         }

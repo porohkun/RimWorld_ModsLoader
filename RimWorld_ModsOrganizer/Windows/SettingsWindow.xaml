@@ -1,0 +1,32 @@
+﻿<Window x:Class="RimWorld_ModsOrganizer.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RimWorld_ModsOrganizer"
+        mc:Ignorable="d"
+        Title="Settings" Height="300" Width="450" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="Steam path:"/>
+        <TextBox x:Name="steamTextBox" Grid.Column="1" Grid.Row="2"/>
+        <Button Grid.Column="3" Grid.Row="2" Content="Browse" Click="SteamPath_Click"/>
+        <Button Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="6" Content="OK" Click="OK_Click" Width="80"/>
+    </Grid>
+</Window>

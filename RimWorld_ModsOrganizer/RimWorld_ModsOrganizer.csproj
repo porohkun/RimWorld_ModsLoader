@@ -55,7 +55,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Controls\SaveGameControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ModSetControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditModSetWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -65,25 +81,36 @@
     </Compile>
     <Compile Include="Controls\BaseArrangableControl.cs" />
     <Compile Include="Controls\ControlsPanel.cs" />
+    <Compile Include="Windows\EditModSetWindow.xaml.cs">
+      <DependentUpon>EditModSetWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lancer1WPF\ArrangePanel.cs" />
     <Compile Include="Lancer1WPF\DataItem.cs" />
     <Compile Include="Lancer1WPF\ILayoutStrategy.cs" />
     <Compile Include="Lancer1WPF\ListLayoutStrategy.cs" />
     <Compile Include="Lancer1WPF\TableLayoutStrategy.cs" />
     <Compile Include="Lancer1WPF\TestDataSource.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="Models\ModsConfigModel.cs" />
+    <Compile Include="Models\ModSetModel.cs" />
+    <Compile Include="Models\RimVersion.cs" />
+    <Compile Include="Models\SavegameModel.cs" />
+    <Compile Include="Controls\SaveGameControl.xaml.cs">
+      <DependentUpon>SaveGameControl.xaml</DependentUpon>
     </Compile>
-    <Page Include="Controls\ModSetControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Controls\ModSetControl.xaml.cs">
       <DependentUpon>ModSetControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Utils\SerializationTool.cs" />
+    <Compile Include="Windows\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -113,13 +140,21 @@
   <ItemGroup>
     <Resource Include="Images\InfoButton.tex.png" />
     <Resource Include="Images\NewFile.tex.png" />
-    <Resource Include="Images\Other-steam-light-icon.png" />
     <Resource Include="Images\RimIcon.png" />
     <Resource Include="Images\RimWorldLogo.tex.png" />
     <Resource Include="Images\Save.tex.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\steam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\preview.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
