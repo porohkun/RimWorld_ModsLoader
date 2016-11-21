@@ -63,6 +63,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\ModControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\EditModSetWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -81,6 +85,11 @@
     </Compile>
     <Compile Include="Controls\BaseArrangableControl.cs" />
     <Compile Include="Controls\ControlsPanel.cs" />
+    <Compile Include="Controls\ModControl.xaml.cs">
+      <DependentUpon>ModControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModMetaData.cs" />
+    <Compile Include="Models\RimMod.cs" />
     <Compile Include="Windows\EditModSetWindow.xaml.cs">
       <DependentUpon>EditModSetWindow.xaml</DependentUpon>
     </Compile>

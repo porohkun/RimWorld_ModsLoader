@@ -16,10 +16,10 @@ namespace RimWorld_ModsOrganizer
         public int Build { get; private set; }
         public int Revision { get; private set; }
 
-        public string Long { get { return this.ToString(); } }
+        public string Long { get { return string.Format("{0}.{1}.{2} rev{3}", Major, Minor, Build, Revision); } }
         public string Short { get { return string.Format("{0}.{1}.{2}", Major, Minor, Build); } }
 
-        public RimVersion(int major, int minor, int build, int revision)
+        public RimVersion(int major, int minor, int build, int revision = 0)
         {
             Major = major;
             Minor = minor;
@@ -35,7 +35,10 @@ namespace RimWorld_ModsOrganizer
         public static implicit operator RimVersion(string value)
         {
             var vs = value.Replace(" rev", ".").Split('.');
-            return new RimVersion(int.Parse(vs[0]), int.Parse(vs[1]), int.Parse(vs[2]), int.Parse(vs[3]));
+            if (vs.Length == 4)
+                return new RimVersion(int.Parse(vs[0]), int.Parse(vs[1]), int.Parse(vs[2]), int.Parse(vs[3]));
+            else
+                return new RimVersion(int.Parse(vs[0]), int.Parse(vs[1]), int.Parse(vs[2]));
         }
 
         public XmlSchema GetSchema() { return null; }
@@ -47,7 +50,7 @@ namespace RimWorld_ModsOrganizer
             Major = int.Parse(vs[0]);
             Minor = int.Parse(vs[1]);
             Build = int.Parse(vs[2]);
-            Revision = int.Parse(vs[3]);
+            Revision = vs.Length == 4 ? int.Parse(vs[3]) : 0;
         }
 
         public void WriteXml(XmlWriter writer)
@@ -57,7 +60,10 @@ namespace RimWorld_ModsOrganizer
 
         public override string ToString()
         {
-            return string.Format("{0}.{1}.{2} rev{3}", Major, Minor, Build, Revision);
+            if (Revision == 0)
+                return Short;
+            else
+                return Long;
         }
 
     }
